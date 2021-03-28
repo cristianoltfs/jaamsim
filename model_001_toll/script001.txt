@@ -1,13 +1,3 @@
-### Description
-
-Simple toll model.
-
-Cars arrive at a 30-second interval (exponential distribution).
-
-Cars are serviced at an interval of 20 seconds (exponential distribution).
-
-The simulation runs for 10 hours and serves 1208 cars.
-
 ### Author
 
 Cristiano Luís Turbino de França e Silva
@@ -24,6 +14,16 @@ e-mail: wilson.trigueiro@ufsj.edu.br
 ### Video (optional)
 
 https://www.youtube.com/watch?v=SFcXk8YZe68&list=PLRvwRusArl39IYHrsQRj89onSVvFeWIIP&index=9
+
+### Description
+
+Simple toll model.
+
+Cars arrive at a 30-second interval (exponential distribution).
+
+Cars are serviced at an interval of 20 seconds (exponential distribution).
+
+The simulation runs for 10 hours and serves 1208 cars.
 
 ### List of acronyms (standard)
 
