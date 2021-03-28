@@ -6,13 +6,13 @@ See the first model to understand it better.
 
 Script template:
 
-### Description
-
 ### Author
 
 ### Reviewer (optional)
 
 ### Video (optional)
+
+### Description
 
 ### List of acronyms (standard)
 

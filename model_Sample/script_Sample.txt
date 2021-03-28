@@ -32,58 +32,59 @@ OS = Object Selector
 IE = Input Editor
 KI = Key Inputs
 OV = Output Viewer
+* = modify or show
 
 ### Configure simmulation
 
 OS / Simulation / IE - Simulation / KI
-* modify Value RunDuration : 10 h
+* Value RunDuration : 10 h
 
 ### Model building
 
 MB-OS / Process Flow / SimEntity
-* modify name SimEntity1 (F2) : Car
+* name SimEntity1 (F2) : Car
 
 MB-OS / Process Flow / EntityGenerator
-* modify name EntityGenerator1 (F2) : ArrivalCars
+* name EntityGenerator1 (F2) : ArrivalCars
 
 IE - ArrivalCars / KI
-* modify Value PrototypeEntity : Car
+* Value PrototypeEntity : Car
 
 MB-OS / Process Flow / Queue
-* modify name Queue1 (F2) : CarsQueue
+* name Queue1 (F2) : CarsQueue
 
 IE - ArrivalCars / KI
-* modify Value NextComponent : CarsQueue
+* Value NextComponent : CarsQueue
 
 MB-OS / Process Flow / Server
-* modify name Server1 (F2) : Tool
+* name Server1 (F2) : Tool
 
 MB-OS / Process Flow / EntitySink
-* modify name EntitySink1 (F2) : CarsOutput
+* name EntitySink1 (F2) : CarsOutput
 
 IE - Toll / KI
-* modify Value WaitQueue : CarsQueue
-* modify Value NextComponent : CarsOutput
+* Value WaitQueue : CarsQueue
+* Value NextComponent : CarsOutput
 
 MB-OS / Probability Distributions / ExponentialDestribution
-* modify name ExponentialDestribution1 (F2) : ArrivalFee
+* name ExponentialDestribution1 (F2) : ArrivalFee
 
 MB-OS / Probability Distributions / ExponentialDestribution
-* modify name ExponentialDestribution1 (F2) : AttendanceFee
+* name ExponentialDestribution1 (F2) : AttendanceFee
 
 IE - ArrivalFee / KI
-* modify Value UnitType : TimeUnit
-* modify Value Mean: 30 s
+* Value UnitType : TimeUnit
+* Value Mean: 30 s
 
 IE - AttendanceFee / KI
-* modify Value UnitType : TimeUnit
-* modify Value Mean: 20 s
+* Value UnitType : TimeUnit
+* Value Mean: 20 s
 
 IE - ArrivalCars / KI
-* modify Value InterArrivalTime : ArrivalFee
+* Value InterArrivalTime : ArrivalFee
 
 IE - Toll / KI
-* modify Value ServiceTime : AttendanceFee
+* Value ServiceTime : AttendanceFee
 
 ### Result after running
 
