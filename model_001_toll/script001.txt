@@ -1,0 +1,91 @@
+### Description
+
+Simple toll model.
+
+Cars arrive at a 30-second interval (exponential distribution).
+
+Cars are serviced at an interval of 20 seconds (exponential distribution).
+
+The simulation runs for 10 hours and serves 1208 cars.
+
+### Author
+
+Cristiano Luís Turbino de França e Silva
+e-mail: cristianoltfs@gmail.com
+
+### Reviewer (optional)
+
+David Custódio de Sena
+e-mail: davidc.sena@gmail.com
+
+Wilson Trigueiro de Sousa Júnior
+e-mail: wilson.trigueiro@ufsj.edu.br
+
+### Video (optional)
+
+https://www.youtube.com/watch?v=SFcXk8YZe68&list=PLRvwRusArl39IYHrsQRj89onSVvFeWIIP&index=9
+
+### List of acronyms (standard)
+
+MB = Model Builder
+OS = Object Selector
+IE = Input Editor
+KI = Key Inputs
+OV = Output Viewer
+
+### Configure simmulation
+
+OS / Simulation / IE - Simulation / KI
+* modify Value RunDuration : 10 h
+
+### Model building
+
+MB-OS / Process Flow / SimEntity
+* modify name SimEntity1 (F2) : Car
+
+MB-OS / Process Flow / EntityGenerator
+* modify name EntityGenerator1 (F2) : ArrivalCars
+
+IE - ArrivalCars / KI
+* modify Value PrototypeEntity : Car
+
+MB-OS / Process Flow / Queue
+* modify name Queue1 (F2) : CarsQueue
+
+IE - ArrivalCars / KI
+* modify Value NextComponent : CarsQueue
+
+MB-OS / Process Flow / Server
+* modify name Server1 (F2) : Tool
+
+MB-OS / Process Flow / EntitySink
+* modify name EntitySink1 (F2) : CarsOutput
+
+IE - Toll / KI
+* modify Value WaitQueue : CarsQueue
+* modify Value NextComponent : CarsOutput
+
+MB-OS / Probability Distributions / ExponentialDestribution
+* modify name ExponentialDestribution1 (F2) : ArrivalFee
+
+MB-OS / Probability Distributions / ExponentialDestribution
+* modify name ExponentialDestribution1 (F2) : AttendanceFee
+
+IE - ArrivalFee / KI
+* modify Value UnitType : TimeUnit
+* modify Value Mean: 30 s
+
+IE - AttendanceFee / KI
+* modify Value UnitType : TimeUnit
+* modify Value Mean: 20 s
+
+IE - ArrivalCars / KI
+* modify Value InterArrivalTime : ArrivalFee
+
+IE - Toll / KI
+* modify Value ServiceTime : AttendanceFee
+
+### Result after running
+
+OV - CarsOutput
+* LinkedComponent / NumberProcessed = 1208
