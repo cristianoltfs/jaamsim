@@ -32,59 +32,59 @@ OS = Object Selector
 IE = Input Editor
 KI = Key Inputs
 OV = Output Viewer
-* = modify or show
+* = modify Value/Name or show
 
 ### Configure simmulation
 
 OS / Simulation / IE - Simulation / KI
-* Value RunDuration : 10 h
+* RunDuration : 10 h
 
 ### Model building
 
 MB-OS / Process Flow / SimEntity
-* name SimEntity1 (F2) : Car
+* SimEntity1 (F2) : Car
 
 MB-OS / Process Flow / EntityGenerator
-* name EntityGenerator1 (F2) : ArrivalCars
+* EntityGenerator1 (F2) : ArrivalCars
 
 IE - ArrivalCars / KI
-* Value PrototypeEntity : Car
+* PrototypeEntity : Car
 
 MB-OS / Process Flow / Queue
-* name Queue1 (F2) : CarsQueue
+* Queue1 (F2) : CarsQueue
 
 IE - ArrivalCars / KI
-* Value NextComponent : CarsQueue
+* NextComponent : CarsQueue
 
 MB-OS / Process Flow / Server
-* name Server1 (F2) : Tool
+* Server1 (F2) : Tool
 
 MB-OS / Process Flow / EntitySink
-* name EntitySink1 (F2) : CarsOutput
+* EntitySink1 (F2) : CarsOutput
 
 IE - Toll / KI
-* Value WaitQueue : CarsQueue
-* Value NextComponent : CarsOutput
+* WaitQueue : CarsQueue
+* NextComponent : CarsOutput
 
 MB-OS / Probability Distributions / ExponentialDestribution
-* name ExponentialDestribution1 (F2) : ArrivalFee
+* ExponentialDestribution1 (F2) : ArrivalFee
 
 MB-OS / Probability Distributions / ExponentialDestribution
-* name ExponentialDestribution1 (F2) : AttendanceFee
+* ExponentialDestribution1 (F2) : AttendanceFee
 
 IE - ArrivalFee / KI
-* Value UnitType : TimeUnit
-* Value Mean: 30 s
+* UnitType : TimeUnit
+* Mean: 30 s
 
 IE - AttendanceFee / KI
-* Value UnitType : TimeUnit
-* Value Mean: 20 s
+* UnitType : TimeUnit
+* Mean: 20 s
 
 IE - ArrivalCars / KI
-* Value InterArrivalTime : ArrivalFee
+* InterArrivalTime : ArrivalFee
 
 IE - Toll / KI
-* Value ServiceTime : AttendanceFee
+* ServiceTime : AttendanceFee
 
 ### Result after running
 
