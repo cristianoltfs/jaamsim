@@ -72,10 +72,10 @@ IE - AbandonmentTime / KI
 * Mean : [Simulation].AbandonmentTime
 
 MB-OS / Process Flow / SimEntity
-* name SimEntity1 (F2) : Call
+* SimEntity1 (F2) : Call
 
 IE - Call / Options
-* Value AttributeDefinitionList : { Type  1 }
+* AttributeDefinitionList : { Type  1 }
 
 MB-OS / Process Flow / EntityGenerator
 * EntityGenerator1 (F2) : EntryCall
