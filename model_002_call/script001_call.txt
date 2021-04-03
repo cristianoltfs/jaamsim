@@ -10,27 +10,27 @@ e-mail: cristianoltfs@gmail.com
 
 ### Video (optional)
 
-https://www.youtube.com/
+https://www.youtube.com/watch?v=iJBgi3JmhWY&list=PLRvwRusArl39IYHrsQRj89onSVvFeWIIP&index=10
 
 ### Description
 
-Modelo de atendimento de ligação.
+Call answering model.
 
-A ligação pode ser rejeitada, caso a capacidade esteja cheia.
+The connection can be rejected if the capacity is full.
 
-A ligação pode ser abandonada, caso um período de espera seja alcançado.
+The call can be abandoned if a waiting period is reached.
 
-Parâmetros:
+Parameters:
 
-Taxa de chegada ligação = 1.5 por segundo (1 ligação há cada 0.67 segundos).
+Call arrival rate = 1.5 per second (1 call every 0.67 seconds).
 
-Tempo de abandono da ligação = 100 segundos.
+Call abandonment time = 100 seconds.
 
-Número de Operators = 100.
+Number of Operators = 100.
 
-Tempo de atendimento = Triangular(100/2, 100, 2*100).
+Service time = Triangular (100/2, 100, 2 * 100).
 
-Capacidade máxima da fila = 50.
+Maximum queue capacity = 50.
 
 ### List of acronyms (standard)
 
