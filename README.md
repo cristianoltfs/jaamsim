@@ -6,8 +6,13 @@ See the first model to understand it better.
 
 # Contact
 
+Cristiano Luís Turbino de França e Silva
 cristianoltfs@gmail.com
 
+Davi Custódio de Sena
+sena@ufersa.edu.br
+
+Wilson Trigueiro de Sousa Júnior
 wilson.trigueiro@ufsj.edu.br
 
 Script template:
