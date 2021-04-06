@@ -4,6 +4,12 @@ Create your model and send as our example.
 
 See the first model to understand it better.
 
+# Contact
+
+cristianoltfs@gmail.com
+
+wilson.trigueiro@ufsj.edu.br
+
 Script template:
 
 ### Author
