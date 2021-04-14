@@ -1,9 +1,12 @@
 ### Author
 
 David Custódio de Sena
-e-mail: sena@ufersa.edu.br
+e-mail : sena@ufersa.edu.br
 
 ### Reviewer (optional)
+
+Cristiano Luís Turbino de França e Silva
+e-mail : cristianoltfs@gmail.com
 
 ### Video (optional)
 
@@ -11,7 +14,9 @@ https....
 
 ### Description
 
-We present an inventory management model. Starting with a basic model and then presenting the application in a continuous replacement system and a periodic replacement system.
+We present an inventory management model.
+
+Starting with a basic model and then presenting the application in a continuous replacement system and a periodic replacement system.
 
 ### List of acronyms (standard)
 
@@ -83,7 +88,7 @@ MB-OS / Process Flow / EntitySink
 IE - EntryDemand / KI
 * NextComponent : 1QueueDemand
 * InterArrivalTime : 5 min
-* PrototypeEntity : EntryDemand
+* PrototypeEntity : Demand
 
 IE - RawMaterialRequest / KI
 * NextComponent : RawMaterialTransport
@@ -97,6 +102,7 @@ IE - PackRM / KI
 * NextComponent : 2QueueLotRM
 * NumberOfEntities : [Simulation].ActivityLot
 * PrototypeEntityContainer : LotRM
+* WaitQueue : QueueRawmaterial
 
 IE - CombineDemandRM / KI
 * WaitQueueList : 1QueueDemand 2QueueLotRM
