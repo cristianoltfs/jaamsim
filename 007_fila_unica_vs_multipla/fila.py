@@ -10,7 +10,7 @@ import plotly.express as px
 import plotly.io as pio
 pio.renderers.default="browser"
 
-fila = pd.read_csv("fila.csv", sep = ";")
+fila = pd.read_csv("fila.csv", sep = ",")
 fila.head()
 
 fila = pd.melt(fila, id_vars='Chegada', value_vars=['AverageQueueTimeUnicaMin','AverageQueueTimeMultiplaMin', 'DiferencaTime', 'MaxEntityWaitingUnica', 'MaxEntityWaitingMultipla', 'DiferencaWait'])
@@ -23,7 +23,7 @@ gfila = px.bar(fila,
              barmode = "group"
 )
 
-gfila.update_yaxes(title = "Intervalo entre chegada")
+gfila.update_yaxes(title = 'Intervalo entre chegada: "Exponential Distribution"')
 
 gfila.update_xaxes(title = "Valor")
 
