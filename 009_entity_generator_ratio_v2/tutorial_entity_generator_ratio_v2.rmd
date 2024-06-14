@@ -1,0 +1,141 @@
+# Description
+
+Gerando entidades com proportções estatísticas
+
+# Author
+
+Cristiano Luís Turbino de França e Silva
+e-mail: cristianoltfs@gmail.com
+
+Adaptado de mensagem enviada no forum do JaamSim
+
+# Reviewer
+
+Cristiano Luís Turbino de França e Silva
+e-mail: cristianoltfs@gmail.com
+
+# Video
+
+www.youtube.com
+
+# List of acronyms
+
+MB = Model Builder
+OS = Object Selector
+IE = Input Editor
+OV = Output Viewer
+
+KI = Key Inputs
+
+# Configure simulation
+
+OS / Simulation / IE - Simulation / KI
+* modify value RunDuration : 5 h
+
+# Model building
+
+MB-OS / Process Flow / SimEntity
+* modify name SimEntity1 (F2) : Vegan
+* modify name SimEntity2 (F2) : Carnivore
+* modify name SimEntity3 (F2) : Vegetarian
+
+IE - Vegan / Graphics
+* modify value DisplayModel : Circle
+
+IE - Carnivore / Graphics
+* modify value DisplayModel : Hexagon
+
+IE - Vegetarian / Graphics
+* modify value DisplayModel : Heptagram
+
+IE - Vegan / Options
+* modify value AtributeDefinitionList : { Type 1 }
+
+IE - Carnivore / Options
+* modify value AtributeDefinitionList : { Type 2 }
+
+IE - Vegetarian / Options
+* modify value AtributeDefinitionList : { Type 3 }
+
+MB-OS / Process Flow / EntityGenerator
+* modify name EntityGenerator1 : ArrivalPeople
+
+OS / Simulation / IE - Simulation / Options
+* modify value PauseCondition : '[ArrivalPeople].NumberGenerated == 1000'
+
+MB-OS / Process Flow / Queue
+* modify name Queue1 (F2) : PeopleQueue
+
+MB-OS / Process Flow / Server
+* modify name Server1 (F2) : TicketGate
+
+IE - TicketGate / KY
+* modify value ServiceTime : 5s
+
+MB-OS / Process Flow / EntitySink
+* modify name EntitySink1 (F2) : Exit
+
+MB-OS / Process Flow / EntityConveyor
+* modify name EntityConveyor1 (F2) : ArrivalPath
+* modify name EntityConveyor2 (F2) : ExitPath
+
+IE - ArrivalPath / KI
+* modify value TravelTime : 10 s
+
+IE - ExitPath / KI
+* modify value TravelTime : 10 s
+
+MB-OS / Probability Distributions / DiscreteDistribution1
+* modify name  DiscreteDistribution1 (F2) : DiscreteDistributionPeople
+
+IE - DiscreteDistributionPeople / KI
+* modify value UnitType : DimensionlessUnit
+* RandomSeed : 1
+* MinValue : 1
+* MaxValue : 3
+* modify value ValueList : 1 2 3
+* ProbabilityList : 0.1 0.3 0.6
+
+IE - ArrivalPeople / KI
+* FirstArrivalTime : 0 s
+* InterArrivalTime : 5 s
+* PrototypeEntity : choose([DiscreteDistributionPeople].Value, [Vegan],[Carnivore],[Vegetarian])
+
+MB-OS / Process Flow / Assign
+* modify name Assign1 : CountPeople
+
+IE / CountPeople / Options
+* AtributeDefinionList :
+{ Qty1 0 }
+{ Qty2 0 }
+{ Qty3 0 }
+
+IE / CountPeople / KI
+* AtributeAssignmentList :
+{ this.Qty1 = this.obj.Version == 1 ? this.Qty1+1 : this.Qty1 }
+{ this.Qty2 = this.obj.Version == 2 ? this.Qty2+1 : this.Qty2 }
+{ this.Qty3 = this.obj.Version == 3 ? this.Qty3+1 : this.Qty3 }
+
+MB-OS / Model Builder / Text
+Text1, Text2, Text3, Text4
+
+IE - Text1, 2 e 3 / KI
+* modify value Format : Quantity 1 = %.0f
+* modify value Format : Quantity 2 = %.0f
+* modify value Format : Quantity 3 = %.0f
+* modify value Format : Total = %.0f
+
+IE - Text1, 2 e 3 / KI
+* modify value DataSource : [CountPeople].Qty1
+* modify value DataSource : [CountPeople].Qty2
+* modify value DataSource : [CountPeople].Qty3
+* modify value DataSource : [ArrivalPeople].NumberGenerated
+
+Conectar os componetes, conforme o vídeo.
+
+Units / TimeUnit / s
+
+Show Labels.
+
+
+
